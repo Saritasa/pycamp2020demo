@@ -1,0 +1,10 @@
+__pycache__
+__version__.py
+.git
+.virtualenv
+.vscode
+*.log
+*.pyc
+*~
+*local.py
+media
