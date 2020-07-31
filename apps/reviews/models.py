@@ -8,9 +8,13 @@ __all__ = (
 
 class Review(models.Model):
     """Review model class definition."""
-    author = models.ForeignKey('users.User', on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(
+        to='users.User',
+        on_delete=models.DO_NOTHING,
+        related_name='reviews',
+    )
     title = models.CharField(max_length=255)
-    text = models.TextField()
+    text = models.TextField(help_text="Required! Min 200 chars.")
     is_published = models.BooleanField(default=True)
     date_created = models.DateTimeField(default=timezone.now)
 

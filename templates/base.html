@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      nav > ul {
+        padding-left: 0;
+      }
+      nav > ul > li {
+        display: inline-block;
+        padding-right: 1em;
+      }
+
+      article {
+        margin-bottom: 2em;
+        line-height: 1.2em;
+      }
+
+      article > footer {
+        padding-top: .8em;
+        color: gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% include 'nav.html' %}
+
+    <section role="main">
+      {% block content %}{% endblock %}
+    </section>
+  </body>
+</html>

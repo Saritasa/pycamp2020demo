@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Last reviews</h1>
+
+  {% for review in reviews %}
+  <article>
+    <header>
+      <h1>{{ review.title }}</h1>
+    </header>
+
+    {{review.text|linebreaks|truncatechars:200}}
+
+    <footer>
+      <em>created by {{review.author}} at {{review.date_created}}</em>
+    </footer>
+  </article>
+  {% endfor %}
+{% endblock %}

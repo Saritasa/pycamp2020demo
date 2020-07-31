@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a review</h1>
+
+<form action="{% url 'reviews:create' %}" method="post">
+  {% csrf_token %}
+
+  {% for field in form %}
+    <label for="id_{{ field.name }}" class="control-label">
+      {{ field.label }}
+    </label>
+
+    <div class="controls">
+      {{ field }}
+    </div>
+
+    {% if field.errors %}{{ field.errors }}{% endif %}
+    {% if field.help_text %}
+      <div class="helptext">{{ field.help_text }}</div>
+    {% endif %}
+  {% endfor %}
+
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
